@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Personal Finance Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>
+        <i class="fa-solid fa-wallet"></i>
+        Personal Finance Tracker
+    </h1>
+
+    <!-- ================= Budget ================= -->
+
+    <div class="budget-card">
+
+        <h2>Monthly Budget</h2>
+
+        <div class="budget-input">
+
+            <input
+                type="number"
+                id="budget"
+                placeholder="Enter Monthly Budget">
+
+            <button id="saveBudget">
+                Save Budget
+            </button>
+
+        </div>
+
+        <div class="budget-info">
+
+            <div>
+                Budget :
+                ₹<span id="budgetValue">0</span>
+            </div>
+
+            <div>
+                Remaining :
+                ₹<span id="remainingBudget">0</span>
+            </div>
+
+        </div>
+
+        <div class="progress-container">
+
+            <div class="progress-bar" id="progressBar">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ================= Summary ================= -->
+
+    <div class="summary">
+
+        <div class="card">
+
+            <h3>Total Expenses</h3>
+
+            <p>
+                ₹<span id="totalExpense">0</span>
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Transactions</h3>
+
+            <p id="transactionCount">
+                0
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Average Expense</h3>
+
+            <p>
+                ₹<span id="averageExpense">0</span>
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- ================= Add Expense ================= -->
+
+    <div class="expense-form">
+
+        <h2>Add Expense</h2>
+
+        <input
+            type="hidden"
+            id="expenseIndex">
+
+        <input
+            type="text"
+            id="title"
+            placeholder="Expense Title">
+
+        <input
+            type="number"
+            id="amount"
+            placeholder="Amount">
+
+        <select id="category">
+
+            <option>Food</option>
+            <option>Transportation</option>
+            <option>Shopping</option>
+            <option>Bills</option>
+            <option>Entertainment</option>
+            <option>Healthcare</option>
+            <option>Education</option>
+            <option>Other</option>
+
+        </select>
+
+        <input
+            type="date"
+            id="date">
+
+        <button id="addExpense">
+            Save Expense
+        </button>
+
+    </div>
+
+    <!-- ================= Filter ================= -->
+
+    <div class="filter">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Search Expense">
+
+        <select id="filterCategory">
+
+            <option value="All">
+                All Categories
+            </option>
+
+            <option>Food</option>
+            <option>Transportation</option>
+            <option>Shopping</option>
+            <option>Bills</option>
+            <option>Entertainment</option>
+            <option>Healthcare</option>
+            <option>Education</option>
+            <option>Other</option>
+
+        </select>
+
+    </div>
+
+    <!-- ================= Expense Table ================= -->
+
+    <table>
+
+        <thead>
+
+        <tr>
+
+            <th>Title</th>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Actions</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody id="expenseTable">
+
+        </tbody>
+
+    </table>
+
+    <!-- ================= Charts ================= -->
+
+    <div class="charts">
+
+        <div class="chart-card">
+
+            <h2>Expenses by Category</h2>
+
+            <canvas id="pieChart"></canvas>
+
+        </div>
+
+        <div class="chart-card">
+
+            <h2>Monthly Expenses</h2>
+
+            <canvas id="barChart"></canvas>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
